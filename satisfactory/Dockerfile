@@ -16,4 +16,4 @@ WORKDIR ${HOME}
 VOLUME ["/data"]
 EXPOSE 15777/udp 15000/udp 7777/udp
 
-CMD ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
