@@ -7,7 +7,10 @@ name: Docker
 
 on:
   push:
-    branches: [ master ]
+    branches:
+    - master
+    paths:
+    - satisfactory/**
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -51,8 +54,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: satisfactory
-          file: satisfactory/Dockerfile
+          context: ${{ env.PACKAGE_NAME }}
+          file: ${{ env.PACKAGE_NAME }}/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
