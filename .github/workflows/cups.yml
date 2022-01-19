@@ -16,9 +16,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  PACKAGE_NAME: satisfactory
-  IMAGE_NAME: ${{ github.repository_owner }}/${{ env.PACKAGE_NAME }}
-
+  PACKAGE_NAME: cups
 
 jobs:
   build:
@@ -47,7 +45,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.PACKAGE_NAME }}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
