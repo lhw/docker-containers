@@ -6,6 +6,7 @@ name: Satisfactory
 # documentation.
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - master
